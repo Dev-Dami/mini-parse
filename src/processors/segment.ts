@@ -1,6 +1,24 @@
-// src/processors/segment.ts
+import { PipelineComponent } from "../core/pipeline";
+import { IntentResult } from "../types";
 
-export function segment(text: string): string[] {
-    // Add segmentation logic here (e.g., split by sentence)
-    return text.split(/(?<=[.?!])\s+/);
-}
+export const segment: PipelineComponent = (input: IntentResult): IntentResult => {
+  // Segment text into sentences
+  const sentences = input.text.split(/(?<=[.?!])\s+/).filter(s => s.trim().length > 0);
+  
+  // Add sentence entities to the result
+  let position = 0;
+  for (const sentence of sentences) {
+    const start = input.text.indexOf(sentence, position);
+    if (start !== -1) {
+      input.entities.push({
+        type: "sentence",
+        value: sentence.trim(),
+        start,
+        end: start + sentence.trim().length,
+      });
+      position = start + sentence.length;
+    }
+  }
+
+  return input;
+};
