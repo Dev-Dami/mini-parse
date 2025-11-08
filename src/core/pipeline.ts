@@ -1,6 +1,6 @@
 import type { Token } from "./Tokenizer";
 import { Tokenizer } from "./Tokenizer";
-import type { Entity, IntentResult } from "./index";
+import type { Entity, IntentResult } from "../types/index";
 
 export type PipelineComponent = (
   input: IntentResult,
