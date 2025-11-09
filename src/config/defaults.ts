@@ -22,6 +22,16 @@ export interface MiniparseConfig {
     extractUrls: boolean;
     extractNumbers: boolean;
   };
+  llm?: {
+    enabled: boolean;
+    provider: string;
+    apiKey?: string;
+    model?: string;
+    baseUrl?: string;
+    temperature?: number;
+    maxTokens?: number;
+    timeout?: number;
+  };
 }
 
 export const defaultConfig: MiniparseConfig = {
@@ -45,5 +55,9 @@ export const defaultConfig: MiniparseConfig = {
     extractPhones: true,
     extractUrls: true,
     extractNumbers: true,
+  },
+  llm: {
+    enabled: false,
+    provider: "gemini",
   },
 };

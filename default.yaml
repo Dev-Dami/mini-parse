@@ -18,3 +18,11 @@ extraction:
   extractPhones: true
   extractUrls: true
   extractNumbers: true
+
+llm:
+  enabled: false
+  provider: gemini
+  model: gemini-2.5-flash
+  temperature: 0.7
+  maxTokens: 1024
+  timeout: 30000
