@@ -9,6 +9,7 @@ import {
   extractPhonesOnly,
   extractUrlsOnly,
   extractNumbersOnly,
+  advClean,
 } from "../processors";
 import { LLMAdapterFactory } from "../llms";
 import type { LLMAdapter } from "../llms";
@@ -33,6 +34,7 @@ export class Pipeline {
 
     if (this.config.pipeline.enableNormalization) this.use(normalize);
     if (this.config.pipeline.enableCleaning) this.use(clean);
+    if (this.config.pipeline.enableAdvCleaning) this.use(advClean);
 
     if (this.config.pipeline.enableExtraction) {
       if (this.config.extraction.extractEmails) this.use(extractEmailsOnly);

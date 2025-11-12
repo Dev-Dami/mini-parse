@@ -6,6 +6,7 @@ export interface MiniparseConfig {
     enableCleaning: boolean;
     enableExtraction: boolean;
     enableSegmentation: boolean;
+    enableAdvCleaning: boolean;
   };
   tokenizer: {
     lowercase: boolean;
@@ -40,6 +41,7 @@ export const defaultConfig: MiniparseConfig = {
     enableCleaning: true,
     enableExtraction: true,
     enableSegmentation: true,
+    enableAdvCleaning: false,
   },
   tokenizer: {
     lowercase: true,

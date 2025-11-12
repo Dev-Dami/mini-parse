@@ -6,3 +6,4 @@ export * from "./llms";
 export type { IntentResult, Entity } from "./types";
 export type { MiniparseConfig } from "./config/defaults";
 export { ConfigLoader } from "./config/loader";
+export * from "./api";
